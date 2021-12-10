@@ -1,0 +1,11 @@
+.bg-gray{
+    background-color: #d3d3d3;
+}
+#mainMenuModal a{
+    transition: all .3s;
+}
+#mainMenuModal a:hover,
+#mainMenuModal a.active{
+    color: #494949 !important;
+    font-size: 220% !important;
+}

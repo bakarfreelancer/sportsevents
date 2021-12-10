@@ -20,14 +20,13 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand fs-1" href="/">Sports Events</a>
-
         <button
           type="button"
           class="btn btn-primary ms-auto me-3"
           data-bs-toggle="modal"
-          data-bs-target="#addAwardModal"
+          data-bs-target="#addPlayerModal"
         >
-          Add Award
+          Add Player
         </button>
 
         <!-- Button trigger logout modal -->
@@ -42,46 +41,76 @@
     <!-- HEADER ENDS -->
 
     <!-- MAIN CONTENT STARTS -->
-    <main class="container overflow-auto">
-      <h2 class="my-4 text-decoration-underline">Awards</h2>
+    <main class="container">
+      <h2 class="my-4 text-decoration-underline">Games</h2>
       <table class="table table-striped mt-4">
         <thead>
           <tr>
-            <th scope="col">NIC</th>
+            <th scope="col">PNIC</th>
             <th scope="col">Player Name</th>
-            <th scope="col">Game ID</th>
-            <th scope="col">Game Name</th>
-            <th scope="col">Award Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Games</th>
             <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">15607</th>
-            <td>Ahmad Khan</td>
-            <td>2</td>
-            <td>Cricket</td>
-            <td>Main of the match</td>
+            <td>1535334</td>
+            <td>Bilal n</td>
+            <td>Swatistan</td>
+            <td>0535434343</td>
+            <td><a class="btn btn-primary">View</a></td>
             <td>
               <a
-                class="btn btn-success editAward"
+                class="btn btn-success editPlayer"
                 data-bs-toggle="modal"
-                data-bs-target="#editAwardModal"
+                data-bs-target="#editPlayerModal"
                 >Edit</a
               >
             </td>
           </tr>
           <tr>
-            <th scope="row">15608</th>
-            <td>Ahmad Ali</td>
-            <td>3</td>
-            <td>Hockey</td>
-            <td>Main of tour</td>
+            <td>1435334</td>
+            <td>Bi Khan</td>
+            <td>Swat</td>
+            <td>053543453</td>
+            <td><a class="btn btn-primary">View</a></td>
             <td>
               <a
-                class="btn btn-success editAward"
+                class="btn btn-success editPlayer"
                 data-bs-toggle="modal"
-                data-bs-target="#editAwardModal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>15335334</td>
+            <td>Bilal sldjKhan</td>
+            <td>Swatsd Pakistan</td>
+            <td>03453343</td>
+            <td><a class="btn btn-primary">View</a></td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>153544</td>
+            <td>Bilal Ali</td>
+            <td>Pakistan</td>
+            <td>05453343</td>
+            <td><a class="btn btn-primary">View</a></td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
                 >Edit</a
               >
             </td>
@@ -105,7 +134,7 @@
             <h5 class="modal-title" id="mainMenuModalLabel">Menu</h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close fs-3"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -147,160 +176,149 @@
     </div>
     <!-- MENU MODAL END -->
 
-    <!-- ADD AWARD MODAL START -->
+    <!-- ADD PLAYER MODAL START -->
     <div
       class="modal fade"
-      id="addAwardModal"
+      id="addPlayerModal"
       tabindex="-1"
-      aria-labelledby="addAwardModalLabel"
+      aria-labelledby="addPlayerModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addAwardModalLabel">Add New Award</h5>
+            <h5 class="modal-title" id="addPlayerModalLabel">Add New Player</h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close fs-3"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <div class="modal-body">
-            <!-- ADD USER FORM START -->
+            <!-- ADD PLAYER FORM START -->
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-12">
-                <label for="playerNic" class="form-label"
-                  >Player NIC Number</label
-                >
-                <select class="form-select" aria-label="Player NIC">
-                  <option selected>Select Player</option>
-                  <option value="15607">15607</option>
-                  <option value="2">15608</option>
-                  <option value="3">53260934</option>
-                  <option value="3">1560934</option>
-                  <option value="2">1523408</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid NIC number.
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label for="playerNic" class="form-label">Game Id</label>
-                <select class="form-select" aria-label="Game Id">
-                  <option selected>Select Game</option>
-                  <option value="15607">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="2">5</option>
-                </select>
-                <div class="invalid-feedback">Please provide a game id.</div>
-              </div>
-
-              <div class="col-12">
-                <label for="awardName" class="form-label">Award Name</label>
+                <label for="playerId" class="form-label">Player NIC</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="awardName"
+                  id="playerId"
                   required
                 />
-                <div class="invalid-feedback">
-                  Please provide a valid award name.
-                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="playerName" class="form-label">Player name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="playerName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" required />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="playerContact" class="form-label">Contact</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="playerContact"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Confirm</button>
               </div>
             </form>
-            <!-- ADD USER FORM END -->
+            <!-- ADD PLAYER FORM END -->
           </div>
         </div>
       </div>
     </div>
-    <!-- ADD AWARD MODAL END -->
+    <!-- ADD PLAYER MODAL END -->
 
-    <!-- EDIT AWARD MODAL START -->
+    <!-- EDIT PLAYER MODAL START -->
     <div
       class="modal fade"
-      id="editAwardModal"
+      id="editPlayerModal"
       tabindex="-1"
-      aria-labelledby="editAwardModalLabel"
+      aria-labelledby="editPlayerModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="editAwardModalLabel">Add New Award</h5>
+            <h5 class="modal-title" id="editPlayerModalLabel">
+              Add New Player
+            </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close fs-3"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <div class="modal-body">
-            <!-- EDIT AWARD FORM START -->
+            <!-- EDIT PLAYER FORM START -->
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-12">
-                <label for="playerNic" class="form-label"
-                  >Player NIC Number</label
-                >
-                <select
-                  class="form-select playerNic"
-                  id="playerNic"
-                  aria-label="Player NIC"
-                >
-                  <option selected>Select Player</option>
-                  <option value="15607">15607</option>
-                  <option value="15608">15608</option>
-                  <option value="3">53260934</option>
-                  <option value="3">1560934</option>
-                  <option value="2">1523408</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid NIC number.
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label for="GId" class="form-label">Game Id</label>
-                <select class="form-select GId" id="GId" aria-label="Game Id">
-                  <option selected>Select Game</option>
-                  <option value="15607">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="2">5</option>
-                </select>
-                <div class="invalid-feedback">Please provide a game id.</div>
-              </div>
-
-              <div class="col-12">
-                <label for="awardName" class="form-label">Award Name</label>
+                <label for="playerId" class="form-label">Player NIC</label>
                 <input
                   type="text"
-                  class="form-control awardName"
-                  id="awardName"
+                  class="form-control playerId"
+                  id="playerId"
                   required
                 />
-                <div class="invalid-feedback">
-                  Please provide a valid award name.
-                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="playerName" class="form-label">Player name</label>
+                <input
+                  type="text"
+                  class="form-control playerName"
+                  id="playerName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                <input
+                  type="text"
+                  class="form-control address"
+                  id="address"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="playerContact" class="form-label">Contact</label>
+                <input
+                  type="text"
+                  class="form-control playerContact"
+                  id="playerContact"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="modal-footer">
                 <a href="#" class="btn btn-danger">Delete</a>
                 <button type="submit" class="btn btn-success">Confirm</button>
               </div>
             </form>
-            <!-- EDIT AWARD FORM END -->
+            <!-- EDIT PLAYER FORM END -->
           </div>
         </div>
       </div>
     </div>
-    <!-- EDIT AWARD MODAL END -->
+    <!-- EDIT PLAYER MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
