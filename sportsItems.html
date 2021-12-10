@@ -25,7 +25,7 @@
           type="button"
           class="btn btn-primary ms-auto me-3"
           data-bs-toggle="modal"
-          data-bs-target="#issueItemModal"
+          data-bs-target="#addItemModal"
         >
           Issue Item
         </button>
@@ -42,7 +42,7 @@
     <!-- HEADER ENDS -->
 
     <!-- MAIN CONTENT STARTS -->
-    <main class="container">
+    <main class="container overflow-auto">
       <h2 class="my-4 text-decoration-underline">Issued Items</h2>
       <table class="table table-striped mt-4">
         <thead>
@@ -145,31 +145,31 @@
               >Sports Items</a
             >
             <a
-              href="awares.html"
+              href="awards.html"
               class="d-block fs-4 text-decoration-none text-dark mb-3"
               >Awards</a
             >
-            <a
-            class="d-block fs-4 text-decoration-none text-dark mb-3"
-            >Logout</a
+            <a class="d-block fs-4 text-decoration-none text-dark mb-3"
+              >Logout</a
+            >
           </div>
         </div>
       </div>
     </div>
     <!-- MENU MODAL END -->
 
-    <!-- ADD GAME MODAL START -->
+    <!-- ADD AWARD MODAL START -->
     <div
       class="modal fade"
-      id="issueItemModal"
+      id="addItemModal"
       tabindex="-1"
-      aria-labelledby="issueItemModalLabel"
+      aria-labelledby="addItemModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="issueItemModalLabel">Add New Player</h5>
+            <h5 class="modal-title" id="addItemModalLabel">Add New Award</h5>
             <button
               type="button"
               class="btn-close"
@@ -196,6 +196,7 @@
                   Please provide a valid NIC number.
                 </div>
               </div>
+
               <div class="col-12">
                 <label for="playerNic" class="form-label">Sports item</label>
                 <select class="form-select" aria-label="Player NIC">
@@ -216,6 +217,7 @@
                 </select>
                 <div class="invalid-feedback">Please select an item.</div>
               </div>
+
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Confirm</button>
               </div>
@@ -225,7 +227,7 @@
         </div>
       </div>
     </div>
-    <!-- ADD GAME MODAL END -->
+    <!-- ADD AWARD MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
