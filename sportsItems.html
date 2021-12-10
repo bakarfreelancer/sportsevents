@@ -43,57 +43,58 @@
 
     <!-- MAIN CONTENT STARTS -->
     <main class="container">
-      <h2 class="my-4 text-decoration-underline">Players</h2>
+      <h2 class="my-4 text-decoration-underline">Issued Items</h2>
       <table class="table table-striped mt-4">
         <thead>
           <tr>
-            <th scope="col">NIC</th>
+            <th scope="col">#</th>
+            <th scope="col">Player NIC</th>
             <th scope="col">Player Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Games</th>
+            <th scope="col">Item Name</th>
             <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1560704324395</th>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>Bat</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
-            <th scope="row">1560704324395</th>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>Bat</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
-            <th scope="row">1560704324395</th>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>Bat</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
-            <th scope="row">1560704324395</th>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>Bat</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
-            <th scope="row">1560704324395</th>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>Bat</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>1545345452346</td>
+            <td>Ahmad Khan</td>
+            <td>Bat</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
         </tbody>
@@ -144,10 +145,13 @@
               >Sports Items</a
             >
             <a
-              href="awareds.html"
+              href="awares.html"
               class="d-block fs-4 text-decoration-none text-dark mb-3"
               >Awards</a
             >
+            <a
+            class="d-block fs-4 text-decoration-none text-dark mb-3"
+            >Logout</a
           </div>
         </div>
       </div>
@@ -196,15 +200,21 @@
                 <label for="playerNic" class="form-label">Sports item</label>
                 <select class="form-select" aria-label="Player NIC">
                   <option selected>Select Item</option>
-                  <option value="15607">Bat</option>
-                  <option value="2">Ball</option>
-                  <option value="3">Wicket</option>
-                  <option value="3">Footaball</option>
-                  <option value="2">1523408</option>
+                  <option value="Bat">Bat</option>
+                  <option value="Ball">Ball</option>
+                  <option value="Gloves">Gloves</option>
+                  <option value="Wickets">Wickets</option>
+                  <option value="Helmet">Helmet</option>
+                  <option value="Football">Football</option>
+                  <option value="Shoes">Shoes</option>
+                  <option value="Basketball">Basketball</option>
+                  <option value="Pool">Pool Stick</option>
+                  <option value="Hockey">Hockey</option>
+                  <option value="Pads">Pads</option>
+                  <option value="Track">Track Suit</option>
+                  <option value="Cap">Cap</option>
                 </select>
-                <div class="invalid-feedback">
-                  Please provide a valid NIC number.
-                </div>
+                <div class="invalid-feedback">Please select an item.</div>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Confirm</button>

@@ -25,9 +25,9 @@
           type="button"
           class="btn btn-primary ms-auto me-3"
           data-bs-toggle="modal"
-          data-bs-target="#addPlayerModal"
+          data-bs-target="#addAwardModal"
         >
-          Add Player
+          Add Award
         </button>
 
         <!-- Button trigger logout modal -->
@@ -42,16 +42,16 @@
     <!-- HEADER ENDS -->
 
     <!-- MAIN CONTENT STARTS -->
-    <main class="container">
-      <h2 class="my-4 text-decoration-underline">Players</h2>
+    <main class="container overflow-auto">
+      <h2 class="my-4 text-decoration-underline">Awards</h2>
       <table class="table table-striped mt-4">
         <thead>
           <tr>
             <th scope="col">NIC</th>
             <th scope="col">Player Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Games</th>
+            <th scope="col">Game ID</th>
+            <th scope="col">Game Name</th>
+            <th scope="col">Aware Name</th>
             <th scope="col">Edit</th>
           </tr>
         </thead>
@@ -59,41 +59,81 @@
           <tr>
             <th scope="row">1560704324395</th>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
             <th scope="row">1560704324395</th>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
             <th scope="row">1560704324395</th>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
             <th scope="row">1560704324395</th>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
           <tr>
             <th scope="row">1560704324395</th>
             <td>Ahmad Khan</td>
-            <td>Sadiu Sharif Swat</td>
-            <td>03331231231</td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1560704324395</th>
+            <td>Ahmad Khan</td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1560704324395</th>
+            <td>Ahmad Khan</td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1560704324395</th>
+            <td>Ahmad Khan</td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1560704324395</th>
+            <td>Ahmad Khan</td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
+            <td><a class="btn btn-success">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1560704324395</th>
+            <td>Ahmad Khan</td>
+            <td>2</td>
+            <td>Cricket</td>
+            <td>Main of the match</td>
             <td><a class="btn btn-success">Edit</a></td>
           </tr>
         </tbody>
@@ -144,31 +184,31 @@
               >Sports Items</a
             >
             <a
-              href="awares.html"
+              href="awards.html"
               class="d-block fs-4 text-decoration-none text-dark mb-3"
               >Awards</a
             >
-            <a
-            class="d-block fs-4 text-decoration-none text-dark mb-3"
-            >Logout</a
+            <a class="d-block fs-4 text-decoration-none text-dark mb-3"
+              >Logout</a
+            >
           </div>
         </div>
       </div>
     </div>
     <!-- MENU MODAL END -->
 
-    <!-- ADD GAME MODAL START -->
+    <!-- ADD AWARD MODAL START -->
     <div
       class="modal fade"
-      id="addPlayerModal"
+      id="addAwardModal"
       tabindex="-1"
-      aria-labelledby="addPlayerModalLabel"
+      aria-labelledby="addAwardModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addPlayerModalLabel">Add New Player</h5>
+            <h5 class="modal-title" id="addAwardModalLabel">Add New Award</h5>
             <button
               type="button"
               class="btn-close"
@@ -183,35 +223,43 @@
                 <label for="playerNic" class="form-label"
                   >Player NIC Number</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="playerNic"
-                  required
-                />
+                <select class="form-select" aria-label="Player NIC">
+                  <option selected>Select Player</option>
+                  <option value="15607">15607</option>
+                  <option value="2">15608</option>
+                  <option value="3">53260934</option>
+                  <option value="3">1560934</option>
+                  <option value="2">1523408</option>
+                </select>
                 <div class="invalid-feedback">
                   Please provide a valid NIC number.
                 </div>
               </div>
+
               <div class="col-12">
-                <label for="playerName" class="form-label">Player name</label>
+                <label for="playerNic" class="form-label">Game Id</label>
+                <select class="form-select" aria-label="Game Id">
+                  <option selected>Select Game</option>
+                  <option value="15607">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="3">4</option>
+                  <option value="2">5</option>
+                </select>
+                <div class="invalid-feedback">Please provide a game id.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="awardName" class="form-label">Award Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="playerName"
+                  id="awardName"
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-12">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" required />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-12">
-                <label for="gameVenue" class="form-label">Contact</label>
-                <input type="text" class="form-control" id="Contact" required />
-                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">
+                  Please provide a valid award name.
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Confirm</button>
@@ -222,7 +270,7 @@
         </div>
       </div>
     </div>
-    <!-- ADD GAME MODAL END -->
+    <!-- ADD AWARD MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
