@@ -57,45 +57,31 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>1545345452346</td>
+            <td>15608</td>
             <td>Ahmad Khan</td>
             <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>
+              <a
+                class="btn btn-success editItem"
+                data-bs-toggle="modal"
+                data-bs-target="#editItemModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">1</th>
-            <td>1545345452346</td>
+            <td>15607</td>
             <td>Ahmad Khan</td>
-            <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>1545345452346</td>
-            <td>Ahmad Khan</td>
-            <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>1545345452346</td>
-            <td>Ahmad Khan</td>
-            <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>1545345452346</td>
-            <td>Ahmad Khan</td>
-            <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>1545345452346</td>
-            <td>Ahmad Khan</td>
-            <td>Bat</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>Ball</td>
+            <td>
+              <a
+                class="btn btn-success editItem"
+                data-bs-toggle="modal"
+                data-bs-target="#editItemModal"
+                >Edit</a
+              >
+            </td>
           </tr>
         </tbody>
       </table>
@@ -178,7 +164,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <!-- ADD USER FORM START -->
+            <!-- ADD ITEM FORM START -->
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-12">
                 <label for="playerNic" class="form-label"
@@ -222,12 +208,92 @@
                 <button type="submit" class="btn btn-success">Confirm</button>
               </div>
             </form>
-            <!-- ADD USER FORM END -->
+            <!-- ADD ITEM FORM END -->
           </div>
         </div>
       </div>
     </div>
     <!-- ADD AWARD MODAL END -->
+
+    <!-- EDIT AWARD MODAL START -->
+    <div
+      class="modal fade"
+      id="editItemModal"
+      tabindex="-1"
+      aria-labelledby="editItemModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editItemModalLabel">Add New Award</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- EDIT ITEM FORM START -->
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-12">
+                <label for="playerNic" class="form-label"
+                  >Player NIC Number</label
+                >
+                <select
+                  class="form-select playerNic"
+                  id="playerNic"
+                  aria-label="Player NIC"
+                >
+                  <option selected>Select Player</option>
+                  <option value="15607">15607</option>
+                  <option value="15608">15608</option>
+                  <option value="3">53260934</option>
+                  <option value="3">1560934</option>
+                  <option value="2">1523408</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid NIC number.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="sportsItem" class="form-label">Sports item</label>
+                <select
+                  class="form-select sportsItem"
+                  id="sportsItem"
+                  aria-label="Player NIC"
+                >
+                  <option selected>Select Item</option>
+                  <option value="Bat">Bat</option>
+                  <option value="Ball">Ball</option>
+                  <option value="Gloves">Gloves</option>
+                  <option value="Wickets">Wickets</option>
+                  <option value="Helmet">Helmet</option>
+                  <option value="Football">Football</option>
+                  <option value="Shoes">Shoes</option>
+                  <option value="Basketball">Basketball</option>
+                  <option value="Pool">Pool Stick</option>
+                  <option value="Hockey">Hockey</option>
+                  <option value="Pads">Pads</option>
+                  <option value="Track">Track Suit</option>
+                  <option value="Cap">Cap</option>
+                </select>
+                <div class="invalid-feedback">Please select an item.</div>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#" class="btn btn-danger">Delete</a>
+                <button type="submit" class="btn btn-success">Confirm</button>
+              </div>
+            </form>
+            <!-- EDIT ITEM FORM END -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EDIT AWARD MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>

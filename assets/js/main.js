@@ -68,9 +68,9 @@
 
 // EDIT PLAYER MODAL
 (function () {
-  let allPlayerEditBtn = document.querySelectorAll(".editAward");
-  for (let i = 0; i < allPlayerEditBtn.length; i++) {
-    allPlayerEditBtn[i].addEventListener("click", function () {
+  let allAwardsEditBtn = document.querySelectorAll(".editAward");
+  for (let i = 0; i < allAwardsEditBtn.length; i++) {
+    allAwardsEditBtn[i].addEventListener("click", function () {
       let game = this.parentElement.parentElement.childNodes;
 
       let filterdData = [
@@ -82,6 +82,22 @@
       document.querySelector(".playerNic").value = filterdData[0];
       document.querySelector(".GId").value = filterdData[1];
       document.querySelector(".awardName").value = filterdData[2];
+    });
+  }
+})();
+
+// EDIT ITEM MODAL
+(function () {
+  let allItemEditBtn = document.querySelectorAll(".editItem");
+  for (let i = 0; i < allItemEditBtn.length; i++) {
+    allItemEditBtn[i].addEventListener("click", function () {
+      let game = this.parentElement.parentElement.childNodes;
+
+      let filterdData = [game[3].textContent, game[7].textContent];
+      console.log(filterdData);
+      document.querySelector(".playerNic").value = filterdData[0];
+      document.querySelector(".sportsItem").value = filterdData[1];
+      // document.querySelector(".awardName").value = filterdData[2];
     });
   }
 })();
