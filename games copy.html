@@ -44,7 +44,7 @@
     <!-- MAIN CONTENT STARTS -->
     <main class="container">
       <h2 class="my-4 text-decoration-underline">Games</h2>
-      <table class="table table-striped mt-4">
+      <table class="table table-striped mt-4" id="gamesTable">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -58,44 +58,86 @@
           <tr>
             <th scope="row">1</th>
             <td>Cricket</td>
-            <td>12/12/18 3:04:23 PM</td>
+            <td>2021-12-23T11:21</td>
             <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Hockey</td>
-            <td>12/12/14 4:04:23 PM</td>
+            <td>12/12/1411, 4:04 PM</td>
             <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Cricket</td>
-            <td>12/12/18 3:04:23 PM</td>
+            <td>12/12/1811, 3:04 PM</td>
             <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Cricket</td>
-            <td>12/12/18 3:04:23 PM</td>
-            <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>12/12/1811, 3:04 PM</td>
+            <td>Ground345</td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">5</th>
-            <td>Cricket</td>
-            <td>12/12/18 3:04:23 PM</td>
-            <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>Cricket43</td>
+            <td>12/12/1811, 13:04 PM</td>
+            <td>Ground 43</td>
+            <td>
+              <a
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
           <tr>
             <th scope="row">6</th>
-            <td>Cricket</td>
-            <td>12/12/18 3:04:23 PM</td>
-            <td>Ground</td>
-            <td><a class="btn btn-success">Edit</a></td>
+            <td>Cricket23</td>
+            <td>12/12/1816, 3:04 PM</td>
+            <td>Ground A</td>
+            <td>
+              <a
+                class="btn btn-success editPlayer"
+                data-bs-toggle="modal"
+                data-bs-target="#editPlayerModal"
+                >Edit</a
+              >
+            </td>
           </tr>
         </tbody>
       </table>
@@ -220,6 +262,70 @@
       </div>
     </div>
     <!-- ADD GAME MODAL END -->
+
+    <!-- EDIT GAME MODAL START -->
+    <div
+      class="modal fade"
+      id="editPlayerModal"
+      tabindex="-1"
+      aria-labelledby="editPlayerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editPlayerModalLabel">Edit Game</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- EDIT GAME FORM START -->
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-12">
+                <label for="gameName" class="form-label">Game name</label>
+                <input
+                  type="text"
+                  class="form-control gameName"
+                  id="gameName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="gameDate" class="form-label">Game Time</label>
+                <input
+                  type="datetime-local"
+                  class="form-control gameDate"
+                  id="gameDate"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="gameVenue" class="form-label">Game venue</label>
+                <input
+                  type="text"
+                  class="form-control gameVenue"
+                  id="gameVenue"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+            <!-- EDIT GAME FORM END -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EDIT GAME MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
