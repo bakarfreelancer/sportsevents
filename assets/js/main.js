@@ -32,7 +32,7 @@
       let filterdData = [
         game[1].textContent,
         game[3].textContent,
-        game[5].textContent,
+        game[5].textContent.replace(" ", "T"),
         game[7].textContent,
       ];
       document.querySelector(".gameId").value = filterdData[0];

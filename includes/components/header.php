@@ -1,4 +1,7 @@
-<?php include('includes/config/db-connect.php')?>
+<?php 
+include('includes/config/db-connect.php');
+include('includes/config/functions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -130,7 +133,9 @@
               class="d-block fs-4 text-decoration-none text-dark mb-3"
               >Awards</a
             >
-            <a class="d-block fs-4 text-decoration-none text-dark mb-3"
+            <a href="#" class="d-block fs-4 text-decoration-none text-dark mb-3"
+            data-bs-toggle="modal"
+          data-bs-target="#logoutModal"
               >Logout</a
             >
           </div>
@@ -138,3 +143,38 @@
       </div>
     </div>
     <!-- MENU MODAL END -->
+
+       <!-- LOGOUT MODAL START -->
+       <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+            <button
+              type="button"
+              class="btn-close fs-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure to logout?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <a href="includes/handlers/logout.php?logout=1" type="button" class="btn btn-danger">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LOGOUT MODAL END -->

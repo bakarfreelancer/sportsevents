@@ -1,4 +1,5 @@
-<?php include('includes/config/db-connect.php')?>
+<?php include('includes/config/db-connect.php');
+include('includes/config/functions.php');?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -146,7 +147,7 @@
             >
               No
             </button>
-            <button type="button" class="btn btn-danger">Yes</button>
+            <a href="includes/handlers/logout.php?logout=1" type="button" class="btn btn-danger">Yes</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 <?php
 include('../config/db-connect.php'); 
+include('../config/functions.php');
     if(isset($_POST['addGame'])){
         if(empty($_POST['gameName'])){
             $_SESSION['addGameError'] = "Game name is required for adding new game.";
