@@ -97,7 +97,6 @@
       console.log(filterdData);
       document.querySelector(".playerNic").value = filterdData[0];
       document.querySelector(".sportsItem").value = filterdData[1];
-      // document.querySelector(".awardName").value = filterdData[2];
     });
   }
 })();
