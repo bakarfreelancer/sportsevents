@@ -2,6 +2,6 @@
 
 > With recorded tutorials in Pahsto
 
-You can watch the detail video on youtube > [https://youtube.com/c/dotcodeofficial](https://youtube.com/c/dotcodeofficial)
+You can watch the detail video on youtube > [Dot Code Channel](https://youtube.com/playlist?list=PL45u2-07wFlJs86tJSnzWXKLdoXXb4BP4)
 
-Download the business rules, ERD, logial desing, and dfd form  website [Dot Code](https://dotcodeofficial.com).
+Download the business rules, ERD, logial desing, and DFD form  website [Dot Code](https://dotcodeofficial.com).
