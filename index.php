@@ -1,3 +1,4 @@
+<?php include('includes/config/db-connect.php')?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +20,7 @@
     <!-- HEADER STARTS -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand fs-1" href="#"
+        <a class="navbar-brand fs-1" href="./"
           >Sports Events Management System</a
         >
 
@@ -49,7 +50,7 @@
       >
         <div class="col-12">
           <a
-            href="games.html"
+            href="games.php"
             type="button"
             class="
               btn
@@ -66,7 +67,7 @@
         </div>
         <div class="col-6">
           <a
-            href="players.html"
+            href="players.php"
             type="button"
             class="
               btn
@@ -82,7 +83,7 @@
         </div>
         <div class="col-6">
           <a
-            href="sportsItems.html"
+            href="sportsItems.php"
             type="button"
             class="
               btn
@@ -99,7 +100,7 @@
         </div>
         <div class="col-12">
           <a
-            href="awards.html"
+            href="awards.php"
             type="button"
             class="
               btn

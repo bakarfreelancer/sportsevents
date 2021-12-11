@@ -1,48 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="assets/bootstrap/icons/font/bootstrap-icons.css"
-    />
+<?php 
+include('./includes/components/header.php');
+include('./includes/handlers/displaygames.php');
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Sports Events</title>
-  </head>
-  <body style="height: 100vh">
-    <!-- HEADER STARTS -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand fs-1" href="/">Sports Events</a>
-
-        <button
-          type="button"
-          class="btn btn-primary ms-auto me-3"
-          data-bs-toggle="modal"
-          data-bs-target="#addPlayerModal"
-        >
-          Add Game
-        </button>
-
-        <!-- Button trigger logout modal -->
-        <i
-          class="bi bi-list fs-1"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#mainMenuModal"
-        ></i>
-      </div>
-    </nav>
-    <!-- HEADER ENDS -->
-
-    <!-- MAIN CONTENT STARTS -->
+?>
+<!-- MAIN CONTENT STARTS -->
     <main class="container">
+
+    <!-- ADD GAME ERROR MESSAGE -->
+      <?php 
+      if(isset($_SESSION['addGameError'])):?>
+        <div class="alert alert-warning alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+          <strong>Error!</strong> 
+          <?php echo $_SESSION['addGameError']?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php 
+        unset($_SESSION['addGameError']);
+        endif
+        ?>
+        
+        <!-- ADD GAME SUCCESS MESSAGE -->
+        <?php 
+      if(isset($_SESSION['addGameSuccess'])):?>
+        <div class="alert alert-success alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+          <strong>Success!</strong> 
+          <?php echo $_SESSION['addGameSuccess']?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php 
+        unset($_SESSION['addGameSuccess']);
+        endif
+        ?>
+
+         <!-- DELETE GAME SUCCESS MESSAGE -->
+        <?php 
+      if(isset($_SESSION['deleteGameSuccess'])):?>
+        <div class="alert alert-success alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+          <strong>Success!</strong> 
+          <?php echo $_SESSION['deleteGameSuccess']?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php 
+        unset($_SESSION['deleteGameSuccess']);
+        endif
+        ?>
+
+        <!-- DELETE GAME ERROR MESSAGE -->
+      <?php 
+      if(isset($_SESSION['deleteGameError'])):?>
+        <div class="alert alert-warning alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+          <strong>Error!</strong> 
+          <?php echo $_SESSION['deleteGameError']?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php 
+        unset($_SESSION['deleteGameError']);
+        endif
+        ?>
+        
       <h2 class="my-4 text-decoration-underline">Games</h2>
       <table class="table table-striped mt-4" id="gamesTable">
         <thead>
@@ -55,12 +70,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cricket</td>
-            <td>2021-12-23T11:21</td>
-            <td>Ground</td>
-            <td>
+          <!-- DISPLAY ALL GAMES -->
+          <?php foreach($games as $game):?>
+            <tr>
+              <th scope="row"><?php echo $game->GId?></th>
+              <td><?php echo $game->GName?></td>
+              <td><?php echo $game->GDate?></td>
+              <td><?php echo $game->GVenue?></td>
+              <td>
               <a
                 class="btn btn-success editGame"
                 data-bs-toggle="modal"
@@ -68,137 +85,12 @@
                 >Edit</a
               >
             </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Hockey</td>
-            <td>2021-12-23T11:21</td>
-            <td>Ground</td>
-            <td>
-              <a
-                class="btn btn-success editGame"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Cricket</td>
-            <td>2021-12-23T11:21</td>
-            <td>Ground</td>
-            <td>
-              <a
-                class="btn btn-success editGame"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Cricket</td>
-            <td>2021-12-23T11:21</td>
-            <td>Ground345</td>
-            <td>
-              <a
-                class="btn btn-success editGame"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Cricket43</td>
-            <td>2021-12-23T11:21</td>
-            <td>Ground 43</td>
-            <td>
-              <a
-                class="btn btn-success editGame"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Cricket23</td>
-            <td>2021-11-23T11:54</td>
-            <td>Ground A</td>
-            <td>
-              <a
-                class="btn btn-success editGame"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
+            </tr>
+          <?php endforeach?>
         </tbody>
       </table>
     </main>
     <!-- MAIN CONTENT ENDS -->
-
-    <!-- MENU MODAL START -->
-    <div
-      class="modal fade"
-      id="mainMenuModal"
-      tabindex="-1"
-      aria-labelledby="mainMenuModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="mainMenuModalLabel">Menu</h5>
-            <button
-              type="button"
-              class="btn-close fs-3"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center">
-            <a
-              href="index.html"
-              class="d-block fs-4 text-decoration-none text-dark mb-3"
-            >
-              Dashboard</a
-            >
-            <a
-              href="games.html"
-              class="d-block fs-4 text-decoration-none text-dark mb-3"
-            >
-              Games</a
-            >
-            <a
-              href="players.html"
-              class="d-block fs-4 text-decoration-none text-dark mb-3"
-              >Players</a
-            >
-            <a
-              href="sportsItems.html"
-              class="d-block fs-4 text-decoration-none text-dark mb-3"
-              >Sports Items</a
-            >
-            <a
-              href="awards.html"
-              class="d-block fs-4 text-decoration-none text-dark mb-3"
-              >Awards</a
-            >
-            <a class="d-block fs-4 text-decoration-none text-dark mb-3"
-              >Logout</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- MENU MODAL END -->
 
     <!-- ADD GAME MODAL START -->
     <div
@@ -220,14 +112,15 @@
             ></button>
           </div>
           <div class="modal-body">
-            <!-- ADD USER FORM START -->
-            <form class="row g-3 needs-validation" novalidate>
+            <!-- ADD GAME FORM START -->
+            <form class="row g-3 needs-validation" action="includes/handlers/addgame.php" method="POST" novalidate>
               <div class="col-12">
                 <label for="gameName" class="form-label">Game name</label>
                 <input
                   type="text"
                   class="form-control"
                   id="gameName"
+                  name="gameName"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -238,6 +131,7 @@
                   type="datetime-local"
                   class="form-control"
                   id="gameDate"
+                  name="gameDate"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -248,15 +142,16 @@
                   type="text"
                   class="form-control"
                   id="gameVenue"
+                  name="gameVenue"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Confirm</button>
+                <button type="submit" name="addGame" class="btn btn-success">Confirm</button>
               </div>
             </form>
-            <!-- ADD USER FORM END -->
+            <!-- ADD GAME FORM END -->
           </div>
         </div>
       </div>
@@ -317,7 +212,7 @@
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="modal-footer">
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="#" class="btn btn-danger deleteGame">Delete</a>
                 <button type="submit" class="btn btn-success">Update</button>
               </div>
             </form>

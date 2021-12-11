@@ -39,7 +39,9 @@
       document.querySelector(".gameName").value = filterdData[1];
       document.querySelector(".gameDate").value = filterdData[2];
       document.querySelector(".gameVenue").value = filterdData[3];
-      console.log(filterdData[0]);
+      document.querySelector(
+        ".deleteGame"
+      ).href = `includes/handlers/deleteGame.php?id=${filterdData[0]}`;
     });
   }
 })();
@@ -61,7 +63,6 @@
       document.querySelector(".playerName").value = filterdData[1];
       document.querySelector(".address").value = filterdData[2];
       document.querySelector(".playerContact").value = filterdData[3];
-      console.log(filterdData[0]);
     });
   }
 })();
@@ -78,7 +79,6 @@
         game[5].textContent,
         game[9].textContent,
       ];
-      console.log(filterdData);
       document.querySelector(".playerNic").value = filterdData[0];
       document.querySelector(".GId").value = filterdData[1];
       document.querySelector(".awardName").value = filterdData[2];
@@ -94,7 +94,6 @@
       let game = this.parentElement.parentElement.childNodes;
 
       let filterdData = [game[3].textContent, game[7].textContent];
-      console.log(filterdData);
       document.querySelector(".playerNic").value = filterdData[0];
       document.querySelector(".sportsItem").value = filterdData[1];
     });
