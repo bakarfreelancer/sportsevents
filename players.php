@@ -1,6 +1,34 @@
-<?php include('./includes/components/header.php'); ?>
+<?php include('./includes/components/header.php');
+include('./includes/handlers/displayplayers.php'); ?>
     <!-- MAIN CONTENT STARTS -->
     <main class="container">
+
+    <!-- ADD PLAYER ERROR MESSAGE -->
+    <?php 
+        if(isset($_SESSION['addPlayerError'])):?>
+          <div class="alert alert-warning alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+            <strong>Error!</strong> 
+            <?php echo $_SESSION['addPlayerError']?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php 
+          unset($_SESSION['addPlayerError']);
+          endif
+          ?>
+          
+          <!-- ADD PLAYER SUCCESS MESSAGE -->
+          <?php 
+        if(isset($_SESSION['addPlayerSuccess'])):?>
+          <div class="alert alert-success alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+            <strong>Success!</strong> 
+            <?php echo $_SESSION['addPlayerSuccess']?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php 
+          unset($_SESSION['addPlayerSuccess']);
+          endif
+          ?>
+
       <h2 class="my-4 text-decoration-underline">Players</h2>
       <table class="table table-striped mt-4">
         <thead>
@@ -14,11 +42,13 @@
           </tr>
         </thead>
         <tbody>
+          <?php if(isset($players)):?>
+          <?php foreach($players as $player):?>
           <tr>
-            <td>1535334</td>
-            <td>Bilal n</td>
-            <td>Swatistan</td>
-            <td>0535434343</td>
+            <td><?php echo $player->PNic?></td>
+            <td><?php echo $player->PName?></td>
+            <td><?php echo $player->PAddress?></td>
+            <td><?php echo $player->PContact?></td>
             <td><a class="btn btn-primary">View</a></td>
             <td>
               <a
@@ -29,51 +59,9 @@
               >
             </td>
           </tr>
-          <tr>
-            <td>1435334</td>
-            <td>Bi Khan</td>
-            <td>Swat</td>
-            <td>053543453</td>
-            <td><a class="btn btn-primary">View</a></td>
-            <td>
-              <a
-                class="btn btn-success editPlayer"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>15335334</td>
-            <td>Bilal sldjKhan</td>
-            <td>Swatsd Pakistan</td>
-            <td>03453343</td>
-            <td><a class="btn btn-primary">View</a></td>
-            <td>
-              <a
-                class="btn btn-success editPlayer"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>153544</td>
-            <td>Bilal Ali</td>
-            <td>Pakistan</td>
-            <td>05453343</td>
-            <td><a class="btn btn-primary">View</a></td>
-            <td>
-              <a
-                class="btn btn-success editPlayer"
-                data-bs-toggle="modal"
-                data-bs-target="#editPlayerModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
+          <?php endforeach;?>
+          <?php endif;?>
+         
         </tbody>
       </table>
     </main>
@@ -101,13 +89,14 @@
           </div>
           <div class="modal-body">
             <!-- ADD PLAYER FORM START -->
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" action="includes/handlers/addplayer.php" method="POST" novalidate>
               <div class="col-12">
                 <label for="playerId" class="form-label">Player NIC</label>
                 <input
                   type="text"
                   class="form-control"
                   id="playerId"
+                  name="playerId"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -118,13 +107,17 @@
                   type="text"
                   class="form-control"
                   id="playerName"
+                  name="playerName"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" required />
+                <input type="text" class="form-control" 
+                id="address"
+                name="address"
+                 required />
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-12">
@@ -133,12 +126,13 @@
                   type="text"
                   class="form-control"
                   id="playerContact"
+                  name="playerContact"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Confirm</button>
+                <button type="submit" name="addPlayer" class="btn btn-success">Confirm</button>
               </div>
             </form>
             <!-- ADD PLAYER FORM END -->
