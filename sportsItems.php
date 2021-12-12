@@ -1,7 +1,49 @@
 <?php include('./includes/components/header.php'); ?>
+<?php
+
+  // Get the sports items from the database
+  $sql = "SELECT item.*, player.PName FROM item INNER JOIN player on item.PNic = player.PNic";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute();
+  $items = $stmt->fetchAll();
+
+  // Get Players NIC from db
+  $sql = "SELECT PNic FROM player";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 
     <!-- MAIN CONTENT STARTS -->
     <main class="container overflow-auto">
+
+    <!-- ADD PLAYER ERROR MESSAGE -->
+    <?php 
+        if(isset($_SESSION['addItemError'])):?>
+          <div class="alert alert-warning alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+            <strong>Error!</strong> 
+            <?php echo $_SESSION['addItemError']?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php 
+          unset($_SESSION['addItemError']);
+          endif
+          ?>
+          
+          <!-- ADD PLAYER SUCCESS MESSAGE -->
+          <?php 
+        if(isset($_SESSION['addItemSuccess'])):?>
+          <div class="alert alert-success alert-dismissible fade show col-10 col-md-6 col-4 mx-auto mt-4" role="alert">
+            <strong>Success!</strong> 
+            <?php echo $_SESSION['addItemSuccess']?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php 
+          unset($_SESSION['addItemSuccess']);
+          endif
+          ?>
+
       <h2 class="my-4 text-decoration-underline">Issued Items</h2>
       <table class="table table-striped mt-4">
         <thead>
@@ -14,11 +56,14 @@
           </tr>
         </thead>
         <tbody>
+                   
+          <?php $itemsCounter = 0;
+           foreach($items as $item): ?>
           <tr>
-            <th scope="row">1</th>
-            <td>15608</td>
-            <td>Ahmad Khan</td>
-            <td>Bat</td>
+            <th scope="row"><?php echo ++$itemsCounter; ?></th>
+            <td><?php echo $item->PNic; ?></td>
+            <td><?php echo $item->PName; ?></td>
+            <td><?php echo $item->SItemName; ?></td>
             <td>
               <a
                 class="btn btn-success editItem"
@@ -28,26 +73,13 @@
               >
             </td>
           </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>15607</td>
-            <td>Ahmad Khan</td>
-            <td>Ball</td>
-            <td>
-              <a
-                class="btn btn-success editItem"
-                data-bs-toggle="modal"
-                data-bs-target="#editItemModal"
-                >Edit</a
-              >
-            </td>
-          </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </main>
     <!-- MAIN CONTENT ENDS -->
     
-    <!-- ADD AWARD MODAL START -->
+    <!-- ADD Sports item START -->
     <div
       class="modal fade"
       id="addItemModal"
@@ -68,7 +100,7 @@
           </div>
           <div class="modal-body">
             <!-- ADD ITEM FORM START -->
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" action="includes/handlers/additem.php" method="POST" novalidate>
               <div class="col-12">
                 <label for="playerNicAdd" class="form-label"
                   >Player NIC Number</label
@@ -76,14 +108,13 @@
                 <select
                   class="form-select"
                   id="playerNicAdd"
+                  name="playerNicAdd"
                   aria-label="Player NIC"
                 >
                   <option selected>Select Player</option>
-                  <option value="15607">15607</option>
-                  <option value="2">15608</option>
-                  <option value="3">53260934</option>
-                  <option value="3">1560934</option>
-                  <option value="2">1523408</option>
+                  <?php foreach($result as $row) : ?>
+                    <option value="<?php echo $row['PNic']; ?>"><?php echo $row['PNic']; ?></option>
+                  <?php endforeach; ?>
                 </select>
                 <div class="invalid-feedback">
                   Please provide a valid NIC number.
@@ -97,6 +128,7 @@
                 <select
                   class="form-select"
                   id="sportsItemAdd"
+                  name="sportsItemAdd"
                   aria-label="Player NIC"
                 >
                   <option selected>Select Item</option>
@@ -118,7 +150,7 @@
               </div>
 
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Confirm</button>
+                <button type="submit" name="addItem" class="btn btn-success">Confirm</button>
               </div>
             </form>
             <!-- ADD ITEM FORM END -->

@@ -165,13 +165,14 @@ include('./includes/handlers/displayplayers.php'); ?>
           </div>
           <div class="modal-body">
             <!-- EDIT PLAYER FORM START -->
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" action="includes/handlers/updateplayer.php" method="POST" novalidate>
               <div class="col-12">
                 <label for="playerId" class="form-label">Player NIC</label>
                 <input
                   type="text"
                   class="form-control playerId"
                   id="playerId"
+                  name="playerId"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -182,6 +183,7 @@ include('./includes/handlers/displayplayers.php'); ?>
                   type="text"
                   class="form-control playerName"
                   id="playerName"
+                  name="playerName"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -192,6 +194,7 @@ include('./includes/handlers/displayplayers.php'); ?>
                   type="text"
                   class="form-control address"
                   id="address"
+                  name="address"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -202,13 +205,15 @@ include('./includes/handlers/displayplayers.php'); ?>
                   type="text"
                   class="form-control playerContact"
                   id="playerContact"
+                  name="playerContact"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
+              <input type="hidden" name="pid" class="pid">
               <div class="modal-footer">
-                <a href="#" class="btn btn-danger">Delete</a>
-                <button type="submit" class="btn btn-success">Confirm</button>
+                <a href="#" class="btn btn-danger deletePlayer">Delete</a>
+                <button type="submit" name="updatePlayer" class="btn btn-success">Confirm</button>
               </div>
             </form>
             <!-- EDIT PLAYER FORM END -->

@@ -59,10 +59,14 @@
         game[5].textContent,
         game[7].textContent,
       ];
+      document.querySelector(".pid").value = filterdData[0];
       document.querySelector(".playerId").value = filterdData[0];
       document.querySelector(".playerName").value = filterdData[1];
       document.querySelector(".address").value = filterdData[2];
       document.querySelector(".playerContact").value = filterdData[3];
+      document.querySelector(
+        ".deletePlayer"
+      ).href = `includes/handlers/deleteplayer.php?id=${filterdData[0]}`;
     });
   }
 })();
