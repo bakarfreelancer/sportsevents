@@ -18,7 +18,7 @@ include('../config/functions.php');
                     'playerContact' => $_POST['playerContact'],
                     'pid' => $_POST['pid']
                 ));
-                $_SESSION['addPlayerSuccess'] = "Player added successfully.";
+                $_SESSION['addPlayerSuccess'] = "Player updated successfully.";
                 header('location: ../../players.php');
             }
             catch(PDOException $e){

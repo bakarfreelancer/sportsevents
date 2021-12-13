@@ -1,4 +1,6 @@
-<?php include('./includes/components/header.php'); ?>
+<?php 
+include('./includes/components/header.php');
+?>
 <?php
 
   // Get the sports items from the database
@@ -158,9 +160,9 @@
         </div>
       </div>
     </div>
-    <!-- ADD AWARD MODAL END -->
+    <!-- ADD SPORTS ITEM MODAL END -->
 
-    <!-- EDIT AWARD MODAL START -->
+    <!-- EDIT SPORTS ITEM MODAL START -->
     <div
       class="modal fade"
       id="editItemModal"
@@ -181,7 +183,9 @@
           </div>
           <div class="modal-body">
             <!-- EDIT ITEM FORM START -->
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" action="includes/handlers/updateItem.php" method="POST" novalidate>
+              <input type="hidden" name="oldPNIC" class="oldPNIC">
+              <input type="hidden" name="oldItem" class="oldItem">
               <div class="col-12">
                 <label for="playerNic" class="form-label"
                   >Player NIC Number</label
@@ -189,14 +193,13 @@
                 <select
                   class="form-select playerNic"
                   id="playerNic"
+                  name="playerNic"
                   aria-label="Player NIC"
                 >
                   <option selected>Select Player</option>
-                  <option value="15607">15607</option>
-                  <option value="15608">15608</option>
-                  <option value="3">53260934</option>
-                  <option value="3">1560934</option>
-                  <option value="2">1523408</option>
+                  <?php foreach($result as $row) : ?>
+                    <option value="<?php echo $row['PNic']; ?>"><?php echo $row['PNic']; ?></option>
+                  <?php endforeach; ?>
                 </select>
                 <div class="invalid-feedback">
                   Please provide a valid NIC number.
@@ -208,6 +211,7 @@
                 <select
                   class="form-select sportsItem"
                   id="sportsItem"
+                  name="sportsItem"
                   aria-label="Player NIC"
                 >
                   <option selected>Select Item</option>
@@ -229,8 +233,8 @@
               </div>
 
               <div class="modal-footer">
-                <a href="#" class="btn btn-danger">Delete</a>
-                <button type="submit" class="btn btn-success">Confirm</button>
+                <a href="#" class="btn btn-danger deleteItem">Delete</a>
+                <button type="submit" name="updateItem" class="btn btn-success">Confirm</button>
               </div>
             </form>
             <!-- EDIT ITEM FORM END -->
@@ -238,7 +242,7 @@
         </div>
       </div>
     </div>
-    <!-- EDIT AWARD MODAL END -->
+    <!-- EDIT SPORTS ITEM MODAL END -->
 
     <!-- BOOTSTAP JS -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>

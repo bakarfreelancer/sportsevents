@@ -71,7 +71,7 @@
   }
 })();
 
-// EDIT PLAYER MODAL
+// EDIT AWARD MODAL
 (function () {
   let allAwardsEditBtn = document.querySelectorAll(".editAward");
   for (let i = 0; i < allAwardsEditBtn.length; i++) {
@@ -85,7 +85,12 @@
       ];
       document.querySelector(".playerNic").value = filterdData[0];
       document.querySelector(".GId").value = filterdData[1];
+      document.querySelector(".oldGId").value = filterdData[1];
       document.querySelector(".awardName").value = filterdData[2];
+      document.querySelector(".oldAwardName").value = filterdData[2];
+      document.querySelector(
+        ".deleteAward"
+      ).href = `includes/handlers/deleteAward.php?GId=${filterdData[1]}&awardName=${filterdData[2]}`;
     });
   }
 })();
@@ -98,8 +103,13 @@
       let game = this.parentElement.parentElement.childNodes;
 
       let filterdData = [game[3].textContent, game[7].textContent];
+      document.querySelector(".oldPNIC").value = filterdData[0];
       document.querySelector(".playerNic").value = filterdData[0];
+      document.querySelector(".oldItem").value = filterdData[1];
       document.querySelector(".sportsItem").value = filterdData[1];
+      document.querySelector(
+        ".deleteItem"
+      ).href = `includes/handlers/deleteitem.php?id=${filterdData[0]}&item=${filterdData[1]}`;
     });
   }
 })();
