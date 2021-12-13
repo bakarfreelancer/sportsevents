@@ -49,7 +49,7 @@ include('./includes/handlers/displayplayers.php'); ?>
             <td><?php echo $player->PName?></td>
             <td><?php echo $player->PAddress?></td>
             <td><?php echo $player->PContact?></td>
-            <td><a class="btn btn-primary">View</a></td>
+            <td><a class="btn btn-primary" href="playergms.php?PNic=<?php echo $player->PNic?>">View</a></td>
             <td>
               <a
                 class="btn btn-success editPlayer"

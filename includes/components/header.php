@@ -74,6 +74,18 @@ include('includes/config/functions.php');
           Issue Item
         </button>
         <?php endif ?>
+        
+        <?php if(strpos($_SERVER['SCRIPT_NAME'], 'playergms')) :?>
+        <!-- Add Item -->
+        <button
+          type="button"
+          class="btn btn-primary ms-auto me-3"
+          data-bs-toggle="modal"
+          data-bs-target="#addPlayerGmModal"
+        >
+          Assign Game
+        </button>
+        <?php endif ?>
 
         <!-- Button trigger logout modal -->
         <i
